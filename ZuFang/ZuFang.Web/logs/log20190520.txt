@@ -1,0 +1,130 @@
+2019-05-20 09:47:45.525 +08:00 [INF] User profile is available. Using 'C:\Users\柳曦\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-20 09:48:13.175 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/swagger/index.html  
+2019-05-20 09:48:13.743 +08:00 [INF] Request finished in 573.9047ms 200 text/html
+2019-05-20 09:48:14.516 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/swagger/v1/swagger.json  
+2019-05-20 09:48:15.070 +08:00 [INF] Request finished in 554.2814ms 200 application/json;charset=utf-8
+2019-05-20 09:48:38.766 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/api/house  
+2019-05-20 09:48:38.902 +08:00 [INF] Route matched with {action = "Get", controller = "House"}. Executing action ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web)
+2019-05-20 09:48:38.935 +08:00 [INF] Executing action method ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web) - Validation state: "Valid"
+2019-05-20 09:48:39.707 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyDbContext' using provider 'MySql.Data.EntityFrameworkCore' with options: None
+2019-05-20 09:48:41.025 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CreationDate`, `c`.`HouseName`
+FROM `Houses` AS `c`
+ORDER BY `c`.`CreationDate` DESC
+2019-05-20 09:48:41.163 +08:00 [INF] Executed action method ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2205.5289000000002ms.
+2019-05-20 09:48:41.183 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ZuFang.Core.entities.House, ZuFang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-05-20 09:48:41.203 +08:00 [INF] Executed action ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web) in 2292.0105000000003ms
+2019-05-20 09:48:41.209 +08:00 [INF] Request finished in 2443.1034ms 200 application/json; charset=utf-8
+2019-05-20 09:48:50.823 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5554/api/house/delete/4  0
+2019-05-20 09:48:50.853 +08:00 [INF] Route matched with {action = "Delete", controller = "House"}. Executing action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web)
+2019-05-20 09:48:50.918 +08:00 [INF] Executing action method ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) with arguments (["4"]) - Validation state: "Valid"
+2019-05-20 09:48:50.970 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyDbContext' using provider 'MySql.Data.EntityFrameworkCore' with options: None
+2019-05-20 09:48:51.094 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CreationDate`, `c`.`HouseName`
+FROM `Houses` AS `c`
+WHERE `c`.`Id` = @__id_0
+LIMIT 1
+2019-05-20 09:48:51.337 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM `Houses`
+WHERE `Id` = @p0;
+SELECT ROW_COUNT();
+2019-05-20 09:48:51.440 +08:00 [INF] Executed action method ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 503.28020000000004ms.
+2019-05-20 09:48:51.458 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-05-20 09:48:51.484 +08:00 [INF] Executed action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) in 626.00600000000009ms
+2019-05-20 09:48:51.494 +08:00 [INF] Request finished in 670.1708ms 200 application/json; charset=utf-8
+2019-05-20 09:49:04.987 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/api/house  
+2019-05-20 09:49:04.990 +08:00 [INF] Route matched with {action = "Get", controller = "House"}. Executing action ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web)
+2019-05-20 09:49:04.995 +08:00 [INF] Executing action method ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web) - Validation state: "Valid"
+2019-05-20 09:49:05.004 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyDbContext' using provider 'MySql.Data.EntityFrameworkCore' with options: None
+2019-05-20 09:49:05.067 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CreationDate`, `c`.`HouseName`
+FROM `Houses` AS `c`
+ORDER BY `c`.`CreationDate` DESC
+2019-05-20 09:49:05.077 +08:00 [INF] Executed action method ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 74.2333ms.
+2019-05-20 09:49:05.089 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ZuFang.Core.entities.House, ZuFang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-05-20 09:49:05.096 +08:00 [INF] Executed action ZuFang.Web.Controllers.HouseController.Get (ZuFang.Web) in 101.2044ms
+2019-05-20 09:49:05.102 +08:00 [INF] Request finished in 114.6669ms 200 application/json; charset=utf-8
+2019-05-20 10:02:07.454 +08:00 [INF] User profile is available. Using 'C:\Users\柳曦\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-20 10:02:34.192 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/swagger/index.html  
+2019-05-20 10:02:34.593 +08:00 [INF] Request finished in 408.0632ms 200 text/html
+2019-05-20 10:02:34.990 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5554/swagger/v1/swagger.json  
+2019-05-20 10:02:35.544 +08:00 [INF] Request finished in 553.1804ms 200 application/json;charset=utf-8
+2019-05-20 10:02:47.457 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5554/api/house/delete?id=1  0
+2019-05-20 10:02:47.593 +08:00 [INF] Route matched with {action = "Delete", controller = "House"}. Executing action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web)
+2019-05-20 10:02:47.659 +08:00 [INF] Executing action method ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) with arguments (["1"]) - Validation state: "Valid"
+2019-05-20 10:02:48.083 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyDbContext' using provider 'MySql.Data.EntityFrameworkCore' with options: None
+2019-05-20 10:02:49.626 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CreationDate`, `c`.`HouseName`
+FROM `Houses` AS `c`
+WHERE `c`.`Id` = @__id_0
+LIMIT 1
+2019-05-20 10:02:49.880 +08:00 [INF] Executed action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) in 2275.8172ms
+2019-05-20 10:02:49.888 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: entity
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
+   at ZuFang.Infrastructure.Repositories.EFRepository`1.DeleteById(Int32 id) in D:\Projects\dotnet\ZuFang\ZuFang\ZuFang.Infrastructure\Repositories\EFRepository.cs:line 46
+   at ZuFang.Web.Controllers.HouseController.Delete(Int32 id) in D:\Projects\dotnet\ZuFang\ZuFang\ZuFang.Web\Controllers\HouseController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-05-20 10:02:50.096 +08:00 [ERR] Value cannot be null.
+Parameter name: entity
+System.ArgumentNullException: Value cannot be null.
+Parameter name: entity
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
+   at ZuFang.Infrastructure.Repositories.EFRepository`1.DeleteById(Int32 id) in D:\Projects\dotnet\ZuFang\ZuFang\ZuFang.Infrastructure\Repositories\EFRepository.cs:line 46
+   at ZuFang.Web.Controllers.HouseController.Delete(Int32 id) in D:\Projects\dotnet\ZuFang\ZuFang\ZuFang.Web\Controllers\HouseController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-05-20 10:02:50.192 +08:00 [INF] Request finished in 2734.886ms 500 application/json
+2019-05-20 10:03:12.055 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5554/api/house/delete?id=2  0
+2019-05-20 10:03:12.059 +08:00 [INF] Route matched with {action = "Delete", controller = "House"}. Executing action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web)
+2019-05-20 10:03:12.070 +08:00 [INF] Executing action method ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) with arguments (["2"]) - Validation state: "Valid"
+2019-05-20 10:03:12.086 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyDbContext' using provider 'MySql.Data.EntityFrameworkCore' with options: None
+2019-05-20 10:03:12.171 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CreationDate`, `c`.`HouseName`
+FROM `Houses` AS `c`
+WHERE `c`.`Id` = @__id_0
+LIMIT 1
+2019-05-20 10:03:12.454 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM `Houses`
+WHERE `Id` = @p0;
+SELECT ROW_COUNT();
+2019-05-20 10:03:12.519 +08:00 [INF] Executed action method ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 425.90610000000004ms.
+2019-05-20 10:03:12.573 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-05-20 10:03:12.659 +08:00 [INF] Executed action ZuFang.Web.Controllers.HouseController.Delete (ZuFang.Web) in 590.7989ms
+2019-05-20 10:03:12.695 +08:00 [INF] Request finished in 639.1603ms 200 application/json; charset=utf-8
