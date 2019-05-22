@@ -35,9 +35,9 @@ namespace ZuFang.Infrastructure.Migrations
 
                     b.Property<decimal>("ElectricityCharge");
 
-                    b.Property<int?>("GuestId");
+                    b.Property<int>("GuestId");
 
-                    b.Property<int?>("HouseId");
+                    b.Property<int>("HouseId");
 
                     b.Property<decimal>("KeyCharge");
 
@@ -46,6 +46,8 @@ namespace ZuFang.Infrastructure.Migrations
                     b.Property<int>("Months");
 
                     b.Property<decimal>("NetCharge");
+
+                    b.Property<string>("Remark");
 
                     b.Property<decimal>("Rent");
 
@@ -90,17 +92,39 @@ namespace ZuFang.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Houses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 389, DateTimeKind.Local).AddTicks(9436),
+                            HouseName = "1号公寓"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4425),
+                            HouseName = "青年公寓"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4431),
+                            HouseName = "柠檬公寓"
+                        });
                 });
 
             modelBuilder.Entity("ZuFang.Core.entities.Contract", b =>
                 {
                     b.HasOne("ZuFang.Core.entities.Guest", "Guest")
                         .WithMany()
-                        .HasForeignKey("GuestId");
+                        .HasForeignKey("GuestId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ZuFang.Core.entities.House", "House")
                         .WithMany()
-                        .HasForeignKey("HouseId");
+                        .HasForeignKey("HouseId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

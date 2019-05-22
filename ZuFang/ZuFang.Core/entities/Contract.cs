@@ -6,8 +6,6 @@ namespace ZuFang.Core.entities
 {
     public class Contract : BaseEntity
     {
-        public virtual House House { get; set; }
-        public virtual Guest Guest { get; set; }
         /// <summary>
         /// 房号
         /// </summary>
@@ -64,5 +62,17 @@ namespace ZuFang.Core.entities
         /// 钥匙费
         /// </summary>
         public decimal KeyCharge { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// 导航属性
+        /// </summary>
+        public House House { get; set; }
+        public int HouseId { get; set; }
+        public Guest Guest { get; set; }
+        public int GuestId { get; set; }
     }
 }

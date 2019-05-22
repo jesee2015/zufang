@@ -43,8 +43,6 @@ namespace ZuFang.Infrastructure.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySQL:AutoIncrement", true),
                     CreationDate = table.Column<DateTime>(nullable: false),
-                    HouseId = table.Column<int>(nullable: true),
-                    GuestId = table.Column<int>(nullable: true),
                     RoomNo = table.Column<string>(nullable: true),
                     ContractDate = table.Column<DateTime>(nullable: false),
                     Months = table.Column<int>(nullable: false),
@@ -57,7 +55,10 @@ namespace ZuFang.Infrastructure.Migrations
                     ElectricityCharge = table.Column<decimal>(nullable: false),
                     Card1Charge = table.Column<decimal>(nullable: false),
                     Card2Charge = table.Column<decimal>(nullable: false),
-                    KeyCharge = table.Column<decimal>(nullable: false)
+                    KeyCharge = table.Column<decimal>(nullable: false),
+                    Remark = table.Column<string>(nullable: true),
+                    HouseId = table.Column<int>(nullable: false),
+                    GuestId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,14 +68,29 @@ namespace ZuFang.Infrastructure.Migrations
                         column: x => x.GuestId,
                         principalTable: "Guest",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Contracts_Houses_HouseId",
                         column: x => x.HouseId,
                         principalTable: "Houses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Houses",
+                columns: new[] { "Id", "CreationDate", "HouseName" },
+                values: new object[] { 1, new DateTime(2019, 5, 21, 17, 6, 28, 389, DateTimeKind.Local).AddTicks(9436), "1号公寓" });
+
+            migrationBuilder.InsertData(
+                table: "Houses",
+                columns: new[] { "Id", "CreationDate", "HouseName" },
+                values: new object[] { 2, new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4425), "青年公寓" });
+
+            migrationBuilder.InsertData(
+                table: "Houses",
+                columns: new[] { "Id", "CreationDate", "HouseName" },
+                values: new object[] { 3, new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4431), "柠檬公寓" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Contracts_GuestId",

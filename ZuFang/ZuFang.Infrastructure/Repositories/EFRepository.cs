@@ -25,7 +25,7 @@ namespace ZuFang.Infrastructure.Repositories
            await  MyDbContext.Set<TEntity>().AddAsync(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await MyDbContext.Set<TEntity>().OrderByDescending(c => c.CreationDate).ToListAsync();
         }

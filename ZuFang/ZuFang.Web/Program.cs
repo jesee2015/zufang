@@ -33,7 +33,7 @@ namespace ZuFang.Web
                 var ServiceProvider = serviceScope.ServiceProvider;
                 var loggerFactory = ServiceProvider.GetRequiredService<ILoggerFactory>();
                 var myDbContext = ServiceProvider.GetRequiredService<MyDbContext>();
-               // MyDbContextSeed.SeedAsync(myDbContext, loggerFactory).Wait();
+                // MyDbContextSeed.SeedAsync(myDbContext, loggerFactory).Wait();
             }
 
             webHost.Run();
@@ -41,9 +41,9 @@ namespace ZuFang.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-            //.UseUrls("http://localhost:5554")
-                .UseSerilog();
+                    .UseStartup<Startup>()
+                    .UseUrls("http://localhost:5554")
+                    .UseSerilog();
 
     }
 }
