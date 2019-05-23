@@ -9,5 +9,10 @@ namespace ZuFang.Web.ViewModel
     public class VmContract : Contract
     {
         public string DisplayContractDate { get; set; }
+
+        /// <summary>
+        /// 标记是上旬、中旬、下旬
+        /// </summary>
+        public int TenDay { get; set; }
     }
 }

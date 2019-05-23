@@ -12,7 +12,9 @@ namespace ZuFang.Web.extension
     {
         public ContractProfile()
         {
-            CreateMap<Contract, VmContract>().ForMember(des => des.DisplayContractDate, opt => opt.MapFrom<DisplayResolver>());
+            CreateMap<Contract, VmContract>()
+                .ForMember(des => des.DisplayContractDate, opt => opt.MapFrom<DisplayResolver>())
+                .ForMember(des => des.TenDay, opt => { opt.MapFrom(c => c.ContractDate.Day / 10); });
         }
     }
 

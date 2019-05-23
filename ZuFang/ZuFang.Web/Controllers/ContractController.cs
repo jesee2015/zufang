@@ -46,7 +46,8 @@ namespace ZuFang.Web.Controllers
         public async Task<IActionResult> GetByHouseId(int houseId)
         {
             IEnumerable<Contract> contracts = await ContractRepository.GetByHouseId(houseId);
-            return Ok(contracts);
+            var VmContracts = Mapper.Map<IEnumerable<VmContract>>(contracts);
+            return Ok(VmContracts);
         }
     }
 }

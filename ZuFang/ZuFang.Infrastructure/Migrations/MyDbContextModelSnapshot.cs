@@ -16,6 +16,42 @@ namespace ZuFang.Infrastructure.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
+            modelBuilder.Entity("ZuFang.Core.entities.CashFlow", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("CleanCharge");
+
+                    b.Property<DateTime>("CreationDate");
+
+                    b.Property<float>("Electricity1");
+
+                    b.Property<float>("Electricity2");
+
+                    b.Property<decimal>("ElectricityCharge");
+
+                    b.Property<int>("HouseId");
+
+                    b.Property<decimal>("ManageCharge");
+
+                    b.Property<decimal>("NetCharge");
+
+                    b.Property<decimal>("Rent");
+
+                    b.Property<int>("RoomId");
+
+                    b.Property<float>("Water1");
+
+                    b.Property<float>("Water2");
+
+                    b.Property<decimal>("WaterCharge");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CashFlows");
+                });
+
             modelBuilder.Entity("ZuFang.Core.entities.Contract", b =>
                 {
                     b.Property<int>("Id")
@@ -97,19 +133,19 @@ namespace ZuFang.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 389, DateTimeKind.Local).AddTicks(9436),
+                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(4169),
                             HouseName = "1号公寓"
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4425),
+                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9152),
                             HouseName = "青年公寓"
                         },
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2019, 5, 21, 17, 6, 28, 390, DateTimeKind.Local).AddTicks(4431),
+                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9158),
                             HouseName = "柠檬公寓"
                         });
                 });

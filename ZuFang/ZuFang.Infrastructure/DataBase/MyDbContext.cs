@@ -44,5 +44,6 @@ namespace ZuFang.Infrastructure.DataBase
         public DbSet<Contract> Contracts { get; set; }
 
         public DbSet<House> Houses { get; set; }
+        public DbSet<CashFlow> CashFlows { get; set; }
     }
 }

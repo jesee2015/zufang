@@ -11,6 +11,12 @@
     <Compile Remove="Migrations\20190521040404_initial.Designer.cs" />
     <Compile Remove="Migrations\20190521090057_remark.cs" />
     <Compile Remove="Migrations\20190521090057_remark.Designer.cs" />
+    <Compile Remove="Migrations\20190523021552_cashflow_water2.cs" />
+    <Compile Remove="Migrations\20190523021552_cashflow_water2.Designer.cs" />
+    <Compile Remove="Migrations\20190523023037_add_water2.cs" />
+    <Compile Remove="Migrations\20190523023037_add_water2.Designer.cs" />
+    <Compile Remove="Migrations\20190523023521_add_water2.cs" />
+    <Compile Remove="Migrations\20190523023521_add_water2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
