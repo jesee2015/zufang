@@ -35,7 +35,7 @@ namespace ZuFang.Infrastructure.Repositories
             return await MyDbContext.Set<TEntity>().FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<TEntity>> GetByMonthAsync(int month)
+        public virtual async Task<IEnumerable<TEntity>> GetByMonthAsync(int month)
         {
             return await MyDbContext.Set<TEntity>().Where(c => c.CreationDate.Month == month).OrderByDescending(c => c.CreationDate).ToListAsync();
         }

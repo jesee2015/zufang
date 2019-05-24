@@ -17,10 +17,19 @@
     <Compile Remove="Migrations\20190523023037_add_water2.Designer.cs" />
     <Compile Remove="Migrations\20190523023521_add_water2.cs" />
     <Compile Remove="Migrations\20190523023521_add_water2.Designer.cs" />
+    <Compile Remove="Migrations\20190523023732_initial.cs" />
+    <Compile Remove="Migrations\20190523023732_initial.Designer.cs" />
+    <Compile Remove="Migrations\20190523035843_addcashtype.cs" />
+    <Compile Remove="Migrations\20190523035843_addcashtype.Designer.cs" />
+    <Compile Remove="Migrations\20190523063136_addcontactincashflow.cs" />
+    <Compile Remove="Migrations\20190523063136_addcontactincashflow.Designer.cs" />
+    <Compile Remove="Migrations\20190523064608_Initial.cs" />
+    <Compile Remove="Migrations\20190523064608_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>

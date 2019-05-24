@@ -14,5 +14,10 @@ namespace ZuFang.Web.ViewModel
         /// 标记是上旬、中旬、下旬
         /// </summary>
         public int TenDay { get; set; }
+
+        /// <summary>
+        /// 本月是否交租
+        /// </summary>
+        public bool HasPay { get; set; }
     }
 }

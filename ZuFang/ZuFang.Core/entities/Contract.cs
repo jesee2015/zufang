@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,10 @@ namespace ZuFang.Core.entities
 {
     public class Contract : BaseEntity
     {
+        public Contract()
+        {
+            this.CashFlows = new List<CashFlow>();
+        }
         /// <summary>
         /// 房号
         /// </summary>
@@ -74,5 +79,8 @@ namespace ZuFang.Core.entities
         public int HouseId { get; set; }
         public Guest Guest { get; set; }
         public int GuestId { get; set; }
+
+        [JsonIgnore]
+        public IEnumerable<CashFlow> CashFlows { get; set; }
     }
 }

@@ -19,12 +19,12 @@ namespace ZuFang.Infrastructure.Repositories
 
         public override async Task<IEnumerable<Contract>> GetAllAsync()
         {
-            return await MyDbContext.Set<Contract>().Include(c => c.House).Include(c => c.Guest).OrderByDescending(c => c.CreationDate).ToListAsync();
+            return await MyDbContext.Set<Contract>().Include(c => c.House).Include(c => c.Guest).Include(c=>c.CashFlows).OrderByDescending(c => c.CreationDate).ToListAsync();
         }
 
         public async Task<IEnumerable<Contract>> GetByHouseId(int houseId)
         {
-            return await MyDbContext.Set<Contract>().Include(c => c.House).Include(c => c.Guest).Where(c=>c.HouseId==houseId).OrderByDescending(c => c.CreationDate).ToListAsync();
+            return await MyDbContext.Set<Contract>().Where(c => c.HouseId == houseId).Include(c => c.House).Include(c => c.Guest).Include(c => c.CashFlows).OrderByDescending(c => c.CreationDate).ToListAsync();
         }
     }
 }

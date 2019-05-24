@@ -23,6 +23,8 @@ namespace ZuFang.Infrastructure.Migrations
 
                     b.Property<decimal>("CleanCharge");
 
+                    b.Property<int>("ContractId");
+
                     b.Property<DateTime>("CreationDate");
 
                     b.Property<float>("Electricity1");
@@ -39,7 +41,7 @@ namespace ZuFang.Infrastructure.Migrations
 
                     b.Property<decimal>("Rent");
 
-                    b.Property<int>("RoomId");
+                    b.Property<int>("Type");
 
                     b.Property<float>("Water1");
 
@@ -48,6 +50,10 @@ namespace ZuFang.Infrastructure.Migrations
                     b.Property<decimal>("WaterCharge");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ContractId");
+
+                    b.HasIndex("HouseId");
 
                     b.ToTable("CashFlows");
                 });
@@ -133,21 +139,34 @@ namespace ZuFang.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(4169),
+                            CreationDate = new DateTime(2019, 5, 23, 15, 43, 38, 365, DateTimeKind.Local).AddTicks(7382),
                             HouseName = "1号公寓"
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9152),
+                            CreationDate = new DateTime(2019, 5, 23, 15, 43, 38, 366, DateTimeKind.Local).AddTicks(2645),
                             HouseName = "青年公寓"
                         },
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9158),
+                            CreationDate = new DateTime(2019, 5, 23, 15, 43, 38, 366, DateTimeKind.Local).AddTicks(2652),
                             HouseName = "柠檬公寓"
                         });
+                });
+
+            modelBuilder.Entity("ZuFang.Core.entities.CashFlow", b =>
+                {
+                    b.HasOne("ZuFang.Core.entities.Contract", "Contract")
+                        .WithMany("CashFlows")
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ZuFang.Core.entities.House", "House")
+                        .WithMany()
+                        .HasForeignKey("HouseId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ZuFang.Core.entities.Contract", b =>

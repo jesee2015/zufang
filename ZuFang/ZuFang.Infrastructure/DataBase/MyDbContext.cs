@@ -36,9 +36,6 @@ namespace ZuFang.Infrastructure.DataBase
                 }
 
             });
-            base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.ApplyConfiguration(new BillItemConfiguration());
         }
 
         public DbSet<Contract> Contracts { get; set; }

@@ -8,31 +8,6 @@ namespace ZuFang.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CashFlows",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    HouseId = table.Column<int>(nullable: false),
-                    RoomId = table.Column<int>(nullable: false),
-                    Rent = table.Column<decimal>(nullable: false),
-                    ManageCharge = table.Column<decimal>(nullable: false),
-                    NetCharge = table.Column<decimal>(nullable: false),
-                    CleanCharge = table.Column<decimal>(nullable: false),
-                    Water1 = table.Column<float>(nullable: false),
-                    Water2 = table.Column<float>(nullable: false),
-                    WaterCharge = table.Column<decimal>(nullable: false),
-                    Electricity1 = table.Column<float>(nullable: false),
-                    Electricity2 = table.Column<float>(nullable: false),
-                    ElectricityCharge = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CashFlows", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Guest",
                 columns: table => new
                 {
@@ -102,20 +77,68 @@ namespace ZuFang.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Houses",
-                columns: new[] { "Id", "CreationDate", "HouseName" },
-                values: new object[] { 1, new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(4169), "1号公寓" });
+            migrationBuilder.CreateTable(
+                name: "CashFlows",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:AutoIncrement", true),
+                    CreationDate = table.Column<DateTime>(nullable: false),
+                    Rent = table.Column<decimal>(nullable: false),
+                    ManageCharge = table.Column<decimal>(nullable: false),
+                    NetCharge = table.Column<decimal>(nullable: false),
+                    CleanCharge = table.Column<decimal>(nullable: false),
+                    Water1 = table.Column<float>(nullable: false),
+                    Water2 = table.Column<float>(nullable: false),
+                    WaterCharge = table.Column<decimal>(nullable: false),
+                    Electricity1 = table.Column<float>(nullable: false),
+                    Electricity2 = table.Column<float>(nullable: false),
+                    ElectricityCharge = table.Column<decimal>(nullable: false),
+                    Type = table.Column<int>(nullable: false),
+                    HouseId = table.Column<int>(nullable: false),
+                    ContractId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CashFlows", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CashFlows_Contracts_ContractId",
+                        column: x => x.ContractId,
+                        principalTable: "Contracts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CashFlows_Houses_HouseId",
+                        column: x => x.HouseId,
+                        principalTable: "Houses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.InsertData(
                 table: "Houses",
                 columns: new[] { "Id", "CreationDate", "HouseName" },
-                values: new object[] { 2, new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9152), "青年公寓" });
+                values: new object[] { 1, new DateTime(2019, 5, 23, 15, 43, 38, 365, DateTimeKind.Local).AddTicks(7382), "1号公寓" });
 
             migrationBuilder.InsertData(
                 table: "Houses",
                 columns: new[] { "Id", "CreationDate", "HouseName" },
-                values: new object[] { 3, new DateTime(2019, 5, 23, 10, 37, 31, 928, DateTimeKind.Local).AddTicks(9158), "柠檬公寓" });
+                values: new object[] { 2, new DateTime(2019, 5, 23, 15, 43, 38, 366, DateTimeKind.Local).AddTicks(2645), "青年公寓" });
+
+            migrationBuilder.InsertData(
+                table: "Houses",
+                columns: new[] { "Id", "CreationDate", "HouseName" },
+                values: new object[] { 3, new DateTime(2019, 5, 23, 15, 43, 38, 366, DateTimeKind.Local).AddTicks(2652), "柠檬公寓" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CashFlows_ContractId",
+                table: "CashFlows",
+                column: "ContractId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CashFlows_HouseId",
+                table: "CashFlows",
+                column: "HouseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Contracts_GuestId",

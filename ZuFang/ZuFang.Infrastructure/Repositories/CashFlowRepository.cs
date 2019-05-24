@@ -21,7 +21,12 @@ namespace ZuFang.Infrastructure.Repositories
 
         public async Task<IEnumerable<CashFlow>> GetByHouseId(int houseId)
         {
-            return await MyDbContext.CashFlows.Where(c => c.HouseId == houseId).OrderByDescending(c => c.CreationDate).ToListAsync();
+            return await MyDbContext.CashFlows.Where(c => c.HouseId == houseId).Include(c => c.Contract).ThenInclude(c => c.House).OrderByDescending(c => c.CreationDate).ToListAsync();
+        }
+
+        public override async Task<IEnumerable<CashFlow>> GetByMonthAsync(int month)
+        {
+            return await MyDbContext.Set<CashFlow>().Where(c => c.CreationDate.Month == month).Include(c => c.Contract).ThenInclude(c=>c.House).OrderByDescending(c => c.CreationDate).ToListAsync();
         }
     }
 }
